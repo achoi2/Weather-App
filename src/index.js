@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Weatherviewer from './Weatherviewer';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+  
+ReactDOM.render(<Weatherviewer />, document.getElementById('root'));
