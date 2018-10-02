@@ -6,21 +6,32 @@ class WeatherViewer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cities: [
-                { id: '1', name: 'atlanta', temp: 90 },
-                { id: '2', name: 'miami', temp: 95 },
-                { id: '3', name: 'new york', temp: 85 }
-            ]
+            citiesData: [{ id: 1, temp: 40 }, { id: 2, temp: 30 }],
+            city: ''
         };
     }
 
+    componentDidMount() {
+        const city = '30338';
+        const searchText = `select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='${city}') and u='c'`;
+        fetch(`https://query.yahooapis.com/v1/public/yql?q=${searchText}&format=json`)
+            .then(res => res.json())
+            .then(citiesData => {
+                // this.setState({ citiesData: {temp: citiesData.query.results.channel.item.condition.temp} });
+            });
+    }
 
-    render() {
+    render() {    
+        
         return (
             <div>
-                <h3>Yahoo Weather</h3>
+                <form>
+                    <label>
+                        <input type="text"/>
+                    </label>
+                </form>
                 <SearchBar />
-                <CitiesCard cities={this.state.cities} />
+                <CitiesCard citiesData={this.state.citiesData} />
             </div>
         );
     }
