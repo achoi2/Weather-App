@@ -5,7 +5,7 @@ const CitiesCard = (props) => {
 
   return <div>
     {
-      props.cities.map(city => <CityCard key={city.id} city={city}/>)
+      props.citiesData.map(cityData => <CityCard key={cityData.id} cityData={cityData}/>)
     }
   </div>
 }
