@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import CityCard from './CityCard';
 
-const CitiesCard = () => {
+const CitiesCard = (props) => {
+
   return <div>
-    CitiesCard
-    <CityCard />
+    {
+      props.cities.map(city => <CityCard key={city.id} city={city}/>)
+    }
   </div>
 }
 
