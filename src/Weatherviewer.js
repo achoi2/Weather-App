@@ -25,6 +25,3 @@ class Weatherviewer extends Component {
             </div>
         );
     }
-}
-
-export default Weatherviewer;
