@@ -9,9 +9,8 @@ class SearchBar extends Component {
     }
 
     render() {
-        let submitForm = (event) => {
-            event.preventDefault();
-        }
+        
+        let submitForm = event => event.preventDefault();
 
         return (
             <div>
