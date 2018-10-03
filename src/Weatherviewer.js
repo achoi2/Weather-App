@@ -11,12 +11,24 @@ class WeatherViewer extends Component {
     }
  
     render() {    
-        let getCitiesData = (data) => this.setState({ citiesData: data });
+        let getCitiesData = (data) => {
+            let newArray = this.state.citiesData.slice();
+            this.setState({ citiesData: newArray.concat(data) });
+            
+        }
         
+        let deleteCity = (cityDelete) => {
+            this.setState(prevState => ({
+                citiesData: prevState.citiesData.filter(city => {
+                    return cityDelete.id !== city.id
+                })
+            }))
+        }
+
         return (
             <div>   
                 <SearchBar getCitiesData={getCitiesData}/>
-                <CitiesCard citiesData={this.state.citiesData} />
+                <CitiesCard citiesData={this.state.citiesData} deleteCity={deleteCity}/>
             </div>
         );
     }

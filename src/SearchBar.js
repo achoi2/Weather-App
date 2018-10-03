@@ -5,14 +5,13 @@ class SearchBar extends Component {
         super(props);
         this.state = {
             code: '',
-
         };
     }
 
 
     render() {
         let fetchData = () => {
-                const searchText = `select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='${this.state.code}') and u='c'`;
+            const searchText = `select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='${this.state.code}') and u='c'`;
                 fetch(`https://query.yahooapis.com/v1/public/yql?q=${searchText}&format=json`)
                     .then(res => res.json())
                     .then(data => {
@@ -25,12 +24,13 @@ class SearchBar extends Component {
         let submitForm = event => {
             event.preventDefault();
             fetchData();
+            
         }
 
         return (
             <div>
                 <form onSubmit={submitForm}>
-                    <input placeholder="enter a zip code" value={this.state.term} onChange={(event) => this.setState({ code: event.target.value })}/>
+                    <input placeholder="enter a city name" value={this.state.term} onChange={(event) => this.setState({ code: event.target.value })}/>
                     <button type="submit">Search</button>
                 </form>
             </div>
