@@ -11,7 +11,7 @@ class SearchBar extends Component {
 
     render() {
         let fetchData = () => {
-            const searchText = `select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='${this.state.code}') and u='c'`;
+            const searchText = `select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text = '${this.state.code}') and u = 'f'`;
                 fetch(`https://query.yahooapis.com/v1/public/yql?q=${searchText}&format=json`)
                     .then(res => res.json())
                     .then(data => {
@@ -39,3 +39,7 @@ class SearchBar extends Component {
 }
 
 export default SearchBar;
+
+
+
+

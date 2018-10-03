@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CitiesCard from './CitiesCard';
 import SearchBar from './SearchBar';
+import Header from './Header';
 
 class WeatherViewer extends Component {
     constructor(props) {
@@ -41,6 +42,7 @@ class WeatherViewer extends Component {
 
         return (
             <div>   
+                <Header />
                 <SearchBar getCitiesData={getCitiesData}/>
                 <CitiesCard citiesData={this.state.citiesData} deleteCity={deleteCity}/>
             </div>
