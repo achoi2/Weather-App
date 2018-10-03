@@ -28,10 +28,20 @@ class SearchBar extends Component {
         }
 
         return (
-            <div>
+            <div className="my-4">
                 <form onSubmit={submitForm}>
-                    <input placeholder="enter a city name" value={this.state.term} onChange={(event) => this.setState({ code: event.target.value })}/>
-                    <button type="submit">Search</button>
+                    <div className="input-group">
+                        <input
+                            placeholder="Enter a city name"
+                            value={this.state.term}
+                            onChange={(event) => this.setState({ code: event.target.value })}
+                            type="text"
+                            className="form-control"
+                        />
+                        <div class="input-group-append">
+                            <button type="submit" className="btn btn-outline-primary">Search</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         );

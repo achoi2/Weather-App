@@ -2,11 +2,20 @@ import React from 'react';
 
 const CityCard = props => {
     return (
-        <div>
-            <h3>{`The temperature of ${props.cityData.number} is ${props.cityData.temp}°C`}</h3>
-            <button onClick={(event) => {
-                props.deleteCity(props.cityData)
-            }}>delete</button>
+        <div className="card mb-3">
+            <div className="card-body">
+                <h3>
+                    The temperature of{' '}
+                    <span className="text-info">{props.cityData.number}</span> is{' '}
+                    <span className="text-warning">{props.cityData.temp}°F</span>
+
+                </h3>
+                <button
+                    onClick={event => props.deleteCity(props.cityData)}
+                    className="btn btn-danger float-right"
+                >Delete
+                </button>
+            </div>   
         </div>
     );
 };
