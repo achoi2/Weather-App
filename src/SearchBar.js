@@ -15,10 +15,9 @@ class SearchBar extends Component {
             fetch(`https://query.yahooapis.com/v1/public/yql?q=${searchText}&format=json`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     let cityData = [{
                         name: term,
-                        // temp: data.query.results.channel.item.condition.temp,
+                        temp: data.query.results.channel.item.condition.temp,
                         id: data.query.created
                     }];
                     this.props.getCitiesData(cityData);
