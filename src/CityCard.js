@@ -8,14 +8,13 @@ const CityCard = props => {
                     The temperature of{' '}
                     <span className="text-info">{props.cityData.name}</span> is{' '}
                     <span className="text-warning">{props.cityData.temp}°F</span>
-
                 </h3>
                 <button
                     onClick={event => props.deleteCity(props.cityData)}
                     className="btn btn-danger float-right"
-                >Delete
+                    >Delete
                 </button>
-            </div>   
+            </div>
         </div>
     );
 };
