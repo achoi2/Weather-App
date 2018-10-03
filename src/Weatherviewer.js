@@ -9,7 +9,21 @@ class WeatherViewer extends Component {
             citiesData: []
         };
     }
+
+    componentDidMount() {
+        const jsonData = localStorage.getItem('cityData');
+        const citiesData = JSON.parse(jsonData);
+
+        this.setState(() => ({citiesData: citiesData}))
+    }
  
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.citiesData.length !== this.state.citiesData.length) {
+            const jsonData = JSON.stringify(this.state.citiesData);
+            localStorage.setItem('cityData', jsonData)
+        }
+    }
+    
     render() {    
         let getCitiesData = (data) => {
             let newArray = this.state.citiesData.slice();
